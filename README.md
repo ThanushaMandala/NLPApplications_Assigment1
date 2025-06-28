@@ -46,7 +46,7 @@ The application supports both in-memory storage (default) and Neo4j graph databa
 - Data is stored in memory during application runtime
 - Suitable for development and small datasets
 
-#### Option 2: Neo4j Graph Database (Recommended for Production)
+#### Option 2: Neo4j Graph Database
 
 1. **Install Neo4j**
    ```bash
@@ -86,7 +86,7 @@ The application includes Redis caching for improved performance with automatic f
 - Cache is stored in application memory
 - Suitable for development and single-instance deployments
 
-#### Option 2: Redis Cache (Recommended for Production)
+#### Option 2: Redis Cache
 
 1. **Install Redis**
    ```bash
@@ -119,7 +119,7 @@ The application includes Redis caching for improved performance with automatic f
    # Should return: PONG
    ```
 
-### Docker Setup (Recommended for Production)
+### Docker Setup
 
 For easy deployment with all dependencies, use Docker Compose:
 
