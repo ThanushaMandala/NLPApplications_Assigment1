@@ -1,0 +1,142 @@
+[
+    {
+        "title": "The Foundational Paper",
+        "authors": ["Pioneer Author"],
+        "journal": "Journal of Pioneering Research",
+        "year": "1990",
+        "cited_papers": []
+    },
+    {
+        "title": "Highly Cited Breakthrough",
+        "authors": ["Famous Researcher", "Co-Author One"],
+        "journal": "Nature",
+        "year": "2000",
+        "cited_papers": ["The Foundational Paper"]
+    },
+    {
+        "title": "Building on Breakthrough 1",
+        "authors": ["Follower A", "Collaborator B"],
+        "journal": "Science",
+        "year": "2005",
+        "cited_papers": ["Highly Cited Breakthrough"]
+    },
+    {
+        "title": "Building on Breakthrough 2",
+        "authors": ["Follower C", "Researcher D"],
+        "journal": "Cell",
+        "year": "2005",
+        "cited_papers": ["Highly Cited Breakthrough"]
+    },
+    {
+        "title": "Building on Breakthrough 3",
+        "authors": ["Academic E", "Scholar F"],
+        "journal": "PNAS",
+        "year": "2006",
+        "cited_papers": ["Highly Cited Breakthrough"]
+    },
+    {
+        "title": "Meta-Analysis of Breakthrough",
+        "authors": ["Review Author", "Meta Analyst"],
+        "journal": "Annual Reviews",
+        "year": "2010",
+        "cited_papers": ["Highly Cited Breakthrough", "Building on Breakthrough 1", "Building on Breakthrough 2", "Building on Breakthrough 3"]
+    },
+    {
+        "title": "Combining Multiple Approaches",
+        "authors": ["Integrator One", "Synthesis Expert"],
+        "journal": "Journal of Integrated Science",
+        "year": "2008",
+        "cited_papers": ["Building on Breakthrough 1", "Building on Breakthrough 2"]
+    },
+    {
+        "title": "Paper with No Authors Listed",
+        "authors": [],
+        "journal": "Anonymous Journal",
+        "year": "2020",
+        "cited_papers": ["Meta-Analysis of Breakthrough"]
+    },
+    {
+        "title": "Very Long Title That Exceeds Normal Length Limits to Test How the System Handles Lengthy Paper Titles in Visualization and Database Storage",
+        "authors": ["Verbose Author", "Wordy Researcher", "Lengthy Name Expert"],
+        "journal": "Journal of Long Titles and Extended Research Names",
+        "year": "2022",
+        "cited_papers": ["Paper with No Authors Listed"]
+    },
+    {
+        "title": "Recent Uncited Work",
+        "authors": ["New Researcher", "Junior Academic"],
+        "journal": "Emerging Research Quarterly",
+        "year": "2023",
+        "cited_papers": ["Very Long Title That Exceeds Normal Length Limits to Test How the System Handles Lengthy Paper Titles in Visualization and Database Storage"]
+    },
+    {
+        "title": "Self-Referential Paper",
+        "authors": ["Recursive Author"],
+        "journal": "Journal of Circular References",
+        "year": "2021",
+        "cited_papers": ["Self-Referential Paper"]
+    },
+    {
+        "title": "Paper Citing Non-Existent Work",
+        "authors": ["Phantom Citer"],
+        "journal": "Journal of Missing References",
+        "year": "2019",
+        "cited_papers": ["This Paper Does Not Exist", "Neither Does This One"]
+    },
+    {
+        "title": "Collaborative Mega-Paper",
+        "authors": ["Author 1", "Author 2", "Author 3", "Author 4", "Author 5", "Author 6", "Author 7", "Author 8", "Author 9", "Author 10"],
+        "journal": "Journal of Large Collaborations",
+        "year": "2018",
+        "cited_papers": ["The Foundational Paper", "Highly Cited Breakthrough", "Meta-Analysis of Breakthrough"]
+    },
+    {
+        "title": "Paper with Special Characters & Symbols",
+        "authors": ["Ünicode Authör", "Spëcial Chāractér"],
+        "journal": "Jöurnal of Spéciàl Cháracters",
+        "year": "2017",
+        "cited_papers": ["Paper with No Authors Listed"]
+    },
+    {
+        "title": "Interdisciplinary Bridge Paper",
+        "authors": ["Bridge Builder", "Cross-Domain Expert"],
+        "journal": "Journal of Interdisciplinary Studies",
+        "year": "2015",
+        "cited_papers": ["The Foundational Paper", "Collaborative Mega-Paper", "Paper with Special Characters & Symbols"]
+    },
+    {
+        "title": "Historical Paper from 1900",
+        "authors": ["Ancient Scholar"],
+        "journal": "Historical Journal",
+        "year": "1900",
+        "cited_papers": []
+    },
+    {
+        "title": "Future Paper",
+        "authors": ["Time Traveler"],
+        "journal": "Journal of Future Research",
+        "year": "2030",
+        "cited_papers": ["Recent Uncited Work"]
+    },
+    {
+        "title": "Paper with Duplicate Citations",
+        "authors": ["Repetitive Citer"],
+        "journal": "Journal of Redundancy",
+        "year": "2016",
+        "cited_papers": ["The Foundational Paper", "The Foundational Paper", "Highly Cited Breakthrough", "Highly Cited Breakthrough"]
+    },
+    {
+        "title": "Empty Fields Test",
+        "authors": [""],
+        "journal": "",
+        "year": "",
+        "cited_papers": [""]
+    },
+    {
+        "title": "Citation Chain End",
+        "authors": ["Chain Terminator"],
+        "journal": "Journal of Final Links",
+        "year": "2024",
+        "cited_papers": ["Interdisciplinary Bridge Paper", "Future Paper", "Paper with Duplicate Citations"]
+    }
+] 

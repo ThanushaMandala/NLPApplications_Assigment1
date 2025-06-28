@@ -1,0 +1,156 @@
+[
+    {
+        "title": "A Neural Probabilistic Language Model",
+        "authors": ["Yoshua Bengio", "Réjean Ducharme", "Pascal Vincent"],
+        "journal": "Journal of Machine Learning Research",
+        "year": "2003",
+        "cited_papers": []
+    },
+    {
+        "title": "Distributed Representations of Sentences and Documents",
+        "authors": ["Quoc Le", "Tomas Mikolov"],
+        "journal": "International Conference on Machine Learning",
+        "year": "2014",
+        "cited_papers": ["A Neural Probabilistic Language Model", "Word2Vec: Efficient Estimation of Word Representations in Vector Space"]
+    },
+    {
+        "title": "Skip-Thought Vectors",
+        "authors": ["Ryan Kiros", "Yukun Zhu", "Ruslan Salakhutdinov"],
+        "journal": "Advances in Neural Information Processing Systems",
+        "year": "2015",
+        "cited_papers": ["Distributed Representations of Sentences and Documents"]
+    },
+    {
+        "title": "Universal Sentence Encoder",
+        "authors": ["Daniel Cer", "Yinfei Yang", "Sheng-yi Kong"],
+        "journal": "arXiv preprint",
+        "year": "2018",
+        "cited_papers": ["Skip-Thought Vectors", "Distributed Representations of Sentences and Documents"]
+    },
+    {
+        "title": "FastText: Enriching Word Vectors with Subword Information",
+        "authors": ["Piotr Bojanowski", "Edouard Grave", "Armand Joulin"],
+        "journal": "Transactions of the Association for Computational Linguistics",
+        "year": "2017",
+        "cited_papers": ["Word2Vec: Efficient Estimation of Word Representations in Vector Space"]
+    },
+    {
+        "title": "Named Entity Recognition with Bidirectional LSTM-CNNs",
+        "authors": ["Jason P.C. Chiu", "Eric Nichols"],
+        "journal": "Transactions of the Association for Computational Linguistics",
+        "year": "2016",
+        "cited_papers": ["FastText: Enriching Word Vectors with Subword Information"]
+    },
+    {
+        "title": "End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF",
+        "authors": ["Xuezhe Ma", "Eduard Hovy"],
+        "journal": "Annual Meeting of the Association for Computational Linguistics",
+        "year": "2016",
+        "cited_papers": ["Named Entity Recognition with Bidirectional LSTM-CNNs"]
+    },
+    {
+        "title": "spaCy: Industrial-strength Natural Language Processing",
+        "authors": ["Matthew Honnibal", "Ines Montani"],
+        "journal": "Software Library",
+        "year": "2017",
+        "cited_papers": ["End-to-end Sequence Labeling via Bi-directional LSTM-CNNs-CRF"]
+    },
+    {
+        "title": "AllenNLP: A Deep Semantic Natural Language Processing Platform",
+        "authors": ["Matt Gardner", "Joel Grus", "Mark Neumann"],
+        "journal": "Workshop on NLP Open Source Software",
+        "year": "2018",
+        "cited_papers": ["spaCy: Industrial-strength Natural Language Processing"]
+    },
+    {
+        "title": "Transformers: State-of-the-Art Natural Language Processing",
+        "authors": ["Thomas Wolf", "Lysandre Debut", "Victor Sanh"],
+        "journal": "Conference on Empirical Methods in Natural Language Processing",
+        "year": "2020",
+        "cited_papers": ["AllenNLP: A Deep Semantic Natural Language Processing Platform", "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"]
+    },
+    {
+        "title": "DistilBERT: a distilled version of BERT",
+        "authors": ["Victor Sanh", "Lysandre Debut", "Julien Chaumond"],
+        "journal": "arXiv preprint",
+        "year": "2019",
+        "cited_papers": ["BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"]
+    },
+    {
+        "title": "ALBERT: A Lite BERT for Self-supervised Learning of Language Representations",
+        "authors": ["Zhenzhong Lan", "Mingda Chen", "Sebastian Goodman"],
+        "journal": "International Conference on Learning Representations",
+        "year": "2020",
+        "cited_papers": ["BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding", "DistilBERT: a distilled version of BERT"]
+    },
+    {
+        "title": "DeBERTa: Decoding-enhanced BERT with Disentangled Attention",
+        "authors": ["Pengcheng He", "Xiaodong Liu", "Jianfeng Gao"],
+        "journal": "International Conference on Learning Representations",
+        "year": "2021",
+        "cited_papers": ["ALBERT: A Lite BERT for Self-supervised Learning of Language Representations"]
+    },
+    {
+        "title": "SciBERT: A Pretrained Language Model for Scientific Text",
+        "authors": ["Iz Beltagy", "Kyle Lo", "Arman Cohan"],
+        "journal": "Conference on Empirical Methods in Natural Language Processing",
+        "year": "2019",
+        "cited_papers": ["BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"]
+    },
+    {
+        "title": "BioBERT: a pre-trained biomedical language representation model",
+        "authors": ["Jinhyuk Lee", "Wonjin Yoon", "Sungdong Kim"],
+        "journal": "Bioinformatics",
+        "year": "2020",
+        "cited_papers": ["SciBERT: A Pretrained Language Model for Scientific Text"]
+    },
+    {
+        "title": "FinBERT: Financial Sentiment Analysis with Pre-trained Language Models",
+        "authors": ["Dogu Araci"],
+        "journal": "arXiv preprint",
+        "year": "2019",
+        "cited_papers": ["BioBERT: a pre-trained biomedical language representation model"]
+    },
+    {
+        "title": "Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks",
+        "authors": ["Nils Reimers", "Iryna Gurevych"],
+        "journal": "Conference on Empirical Methods in Natural Language Processing",
+        "year": "2019",
+        "cited_papers": ["Universal Sentence Encoder", "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"]
+    },
+    {
+        "title": "SimCSE: Simple Contrastive Learning of Sentence Embeddings",
+        "authors": ["Tianyu Gao", "Xingcheng Yao", "Danqi Chen"],
+        "journal": "Conference on Empirical Methods in Natural Language Processing",
+        "year": "2021",
+        "cited_papers": ["Sentence-BERT: Sentence Embeddings using Siamese BERT-Networks"]
+    },
+    {
+        "title": "BLEU: a Method for Automatic Evaluation of Machine Translation",
+        "authors": ["Kishore Papineni", "Salim Roukos", "Todd Ward"],
+        "journal": "Annual Meeting of the Association for Computational Linguistics",
+        "year": "2002",
+        "cited_papers": []
+    },
+    {
+        "title": "ROUGE: A Package for Automatic Evaluation of Summaries",
+        "authors": ["Chin-Yew Lin"],
+        "journal": "Workshop on Text Summarization Branches Out",
+        "year": "2004",
+        "cited_papers": ["BLEU: a Method for Automatic Evaluation of Machine Translation"]
+    },
+    {
+        "title": "METEOR: An Automatic Metric for MT Evaluation",
+        "authors": ["Satanjeev Banerjee", "Alon Lavie"],
+        "journal": "Workshop on Intrinsic and Extrinsic Evaluation Measures",
+        "year": "2005",
+        "cited_papers": ["BLEU: a Method for Automatic Evaluation of Machine Translation", "ROUGE: A Package for Automatic Evaluation of Summaries"]
+    },
+    {
+        "title": "BERTScore: Evaluating Text Generation with BERT",
+        "authors": ["Tianyi Zhang", "Varsha Kishore", "Felix Wu"],
+        "journal": "International Conference on Learning Representations",
+        "year": "2020",
+        "cited_papers": ["METEOR: An Automatic Metric for MT Evaluation", "BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding"]
+    }
+] 
