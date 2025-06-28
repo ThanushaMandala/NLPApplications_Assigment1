@@ -1,4 +1,8 @@
 Flask==2.3.3
 networkx==3.1
 pandas==2.0.3
-Werkzeug==2.3.7 
+Werkzeug==2.3.7
+neo4j==5.14.1
+py2neo==2021.2.3
+redis==5.0.1
+python-dotenv==1.0.0 

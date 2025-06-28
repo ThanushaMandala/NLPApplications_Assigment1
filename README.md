@@ -34,6 +34,158 @@ A comprehensive web-based application for modeling and visualizing relationships
 ### Prerequisites
 - Python 3.7+
 - pip package manager
+- **Neo4j Database** (optional, for enhanced performance)
+- **Redis Cache** (optional, for improved response times)
+
+### Database Setup (Optional)
+
+The application supports both in-memory storage (default) and Neo4j graph database for enhanced performance and scalability.
+
+#### Option 1: In-Memory Storage (Default)
+- No additional setup required
+- Data is stored in memory during application runtime
+- Suitable for development and small datasets
+
+#### Option 2: Neo4j Graph Database (Recommended for Production)
+
+1. **Install Neo4j**
+   ```bash
+   # Using Docker (recommended)
+   docker run \
+       --name neo4j \
+       -p 7474:7474 -p 7687:7687 \
+       -e NEO4J_AUTH=neo4j/password123 \
+       -e NEO4J_PLUGINS='["apoc"]' \
+       -v neo4j_data:/data \
+       neo4j:5.14.1
+   
+   # Or download from https://neo4j.com/download/
+   ```
+
+2. **Create Environment Configuration**
+   ```bash
+   # Create .env file in project root
+   cat > .env << EOF
+   NEO4J_URI=bolt://localhost:7687
+   NEO4J_USER=neo4j
+   NEO4J_PASSWORD=password123
+   EOF
+   ```
+
+3. **Verify Neo4j Connection**
+   - Open Neo4j Browser at `http://localhost:7474`
+   - Login with username: `neo4j`, password: `password123`
+   - The application will automatically create constraints and indexes
+
+### Cache Setup (Optional)
+
+The application includes Redis caching for improved performance with automatic fallback to in-memory cache.
+
+#### Option 1: In-Memory Cache (Default)
+- No additional setup required
+- Cache is stored in application memory
+- Suitable for development and single-instance deployments
+
+#### Option 2: Redis Cache (Recommended for Production)
+
+1. **Install Redis**
+   ```bash
+   # Using Docker (recommended)
+   docker run \
+       --name redis \
+       -p 6379:6379 \
+       -v redis_data:/data \
+       redis:7-alpine
+   
+   # Or install via package manager
+   # macOS: brew install redis
+   # Ubuntu: sudo apt-get install redis-server
+   ```
+
+2. **Update Environment Configuration**
+   ```bash
+   # Add Redis configuration to .env file
+   cat >> .env << EOF
+   REDIS_HOST=localhost
+   REDIS_PORT=6379
+   REDIS_DB=0
+   EOF
+   ```
+
+3. **Verify Redis Connection**
+   ```bash
+   # Test Redis connection
+   redis-cli ping
+   # Should return: PONG
+   ```
+
+### Docker Setup (Recommended for Production)
+
+For easy deployment with all dependencies, use Docker Compose:
+
+1. **Create docker-compose.yml**
+   ```yaml
+   version: '3.8'
+   services:
+     app:
+       build: .
+       ports:
+         - "5000:5000"
+       environment:
+         - NEO4J_URI=bolt://neo4j:7687
+         - REDIS_HOST=redis
+       depends_on:
+         - neo4j
+         - redis
+     
+     neo4j:
+       image: neo4j:5.14.1
+       ports:
+         - "7474:7474"
+         - "7687:7687"
+       environment:
+         - NEO4J_AUTH=neo4j/password123
+       volumes:
+         - neo4j_data:/data
+     
+     redis:
+       image: redis:7-alpine
+       ports:
+         - "6379:6379"
+       volumes:
+         - redis_data:/data
+
+   volumes:
+     neo4j_data:
+     redis_data:
+   ```
+
+2. **Create Dockerfile**
+   ```dockerfile
+   FROM python:3.9-slim
+   
+   WORKDIR /app
+   
+   COPY requirements.txt .
+   RUN pip install -r requirements.txt
+   RUN pip install neo4j py2neo redis python-dotenv
+   
+   COPY . .
+   
+   EXPOSE 5000
+   
+   CMD ["python", "app.py"]
+   ```
+
+3. **Run with Docker Compose**
+   ```bash
+   docker-compose up -d
+   ```
+
+4. **Access Services**
+   - Application: `http://localhost:5000`
+   - Neo4j Browser: `http://localhost:7474`
+   - Redis CLI: `docker exec -it redis redis-cli`
 
 ### Setup Instructions
 
@@ -45,15 +197,26 @@ A comprehensive web-based application for modeling and visualizing relationships
 
 2. **Install Python dependencies**
    ```bash
+   # Install basic dependencies
    pip install -r requirements.txt
+   
+   # Install optional dependencies for database and cache
+   pip install neo4j py2neo redis python-dotenv
    ```
 
-3. **Run the application**
+3. **Configure Environment (Optional)**
+   ```bash
+   # Copy example environment file
+   cp .env.example .env
+   # Edit .env with your database and cache settings
+   ```
+
+4. **Run the application**
    ```bash
    python app.py
    ```
 
-4. **Access the application**
+5. **Access the application**
    - Open your web browser
    - Navigate to `http://localhost:5000`
 
@@ -147,6 +310,16 @@ You can upload these files to quickly populate the knowledge graph and explore t
 - **Pandas**: Data processing for file uploads
 - **Python**: Core application logic
 
+### Database Layer
+- **Neo4j**: Graph database for persistent storage (optional)
+- **In-Memory Storage**: Default storage using NetworkX graphs
+- **Database Manager**: Automatic connection handling and fallback
+
+### Cache Layer
+- **Redis**: High-performance caching (optional)
+- **In-Memory Cache**: Fallback cache when Redis is unavailable
+- **Cache Manager**: Automatic cache invalidation and pattern clearing
+
 ### Frontend
 - **HTML5/CSS3**: Modern, responsive interface
 - **D3.js**: Interactive graph visualization
@@ -157,6 +330,39 @@ You can upload these files to quickly populate the knowledge graph and explore t
 - **Nodes**: Papers, Authors, Journals
 - **Edges**: Citations, Authorship, Publication relationships
 - **Metadata**: Year, journal information, author lists
+
+## Environment Configuration
+
+The application uses environment variables for configuration. Create a `.env` file in the project root:
+
+```bash
+# Database Configuration (Optional)
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=password123
+
+# Cache Configuration (Optional)
+REDIS_HOST=localhost
+REDIS_PORT=6379
+REDIS_DB=0
+
+# Application Configuration
+FLASK_ENV=development
+FLASK_DEBUG=True
+```
+
+### Configuration Options
+
+| Variable | Default | Description |
+|----------|---------|-------------|
+| `NEO4J_URI` | `bolt://localhost:7687` | Neo4j database connection URI |
+| `NEO4J_USER` | `neo4j` | Neo4j username |
+| `NEO4J_PASSWORD` | `password123` | Neo4j password |
+| `REDIS_HOST` | `localhost` | Redis server hostname |
+| `REDIS_PORT` | `6379` | Redis server port |
+| `REDIS_DB` | `0` | Redis database number |
+| `FLASK_ENV` | `development` | Flask environment mode |
+| `FLASK_DEBUG` | `True` | Enable Flask debug mode |
 
 ## Use Cases
 
@@ -181,6 +387,43 @@ You can upload these files to quickly populate the knowledge graph and explore t
 3. **Graph not loading**: Check browser console for JavaScript errors
 4. **Missing dependencies**: Run `pip install -r requirements.txt`
 
+### Database Issues
+
+5. **Neo4j connection fails**:
+   - Verify Neo4j is running: `docker ps` or check service status
+   - Check credentials in `.env` file
+   - Ensure Neo4j Browser is accessible at `http://localhost:7474`
+   - Reset Neo4j password if needed: `docker exec -it neo4j neo4j-admin set-initial-password newpassword`
+
+6. **Database constraints error**:
+   - Clear existing data: `MATCH (n) DETACH DELETE n` in Neo4j Browser
+   - Restart the application to recreate constraints
+
+### Cache Issues
+
+7. **Redis connection fails**:
+   - Verify Redis is running: `docker ps` or `redis-cli ping`
+   - Check Redis configuration in `.env` file
+   - Application will automatically fallback to in-memory cache
+
+8. **Cache not working**:
+   - Check Redis logs: `docker logs redis`
+   - Verify Redis memory usage: `redis-cli info memory`
+   - Clear cache: `redis-cli FLUSHDB`
+
+### Performance Issues
+
+9. **Slow queries**:
+   - Enable Neo4j for persistent storage
+   - Enable Redis for caching
+   - Check database indexes: `SHOW INDEXES` in Neo4j Browser
+   - Monitor cache hit ratio in application logs
+
+10. **Memory issues**:
+    - Increase Redis memory limit
+    - Optimize Neo4j memory settings
+    - Consider using Docker with resource limits
+
 ### Browser Compatibility
 - **Chrome**: Fully supported
 - **Firefox**: Fully supported
@@ -195,8 +438,15 @@ nlpa-project2/
 ├── app.py                 # Flask application
 ├── requirements.txt       # Python dependencies
 ├── README.md             # Documentation
+├── .env                  # Environment configuration (create this)
+├── docker-compose.yml    # Docker Compose configuration
+├── Dockerfile           # Docker configuration
 ├── sample_data.csv       # Sample CSV data
 ├── sample_data.json      # Sample JSON data
+├── config/
+│   └── database.py       # Database configuration and manager
+├── cache/
+│   └── redis_cache.py    # Cache configuration and manager
 ├── templates/
 │   └── index.html        # Main HTML template
 └── static/
